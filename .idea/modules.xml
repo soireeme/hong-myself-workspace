@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/honglei-self-project/getway/getway.iml" filepath="$PROJECT_DIR$/honglei-self-project/getway/getway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/hong-myself-workspace.iml" filepath="$PROJECT_DIR$/.idea/hong-myself-workspace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/honglei-self-project/honglei-self-project.iml" filepath="$PROJECT_DIR$/honglei-self-project/honglei-self-project.iml" />
+    </modules>
+  </component>
+</project>
