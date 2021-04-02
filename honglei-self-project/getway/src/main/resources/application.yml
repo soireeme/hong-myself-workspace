@@ -16,17 +16,20 @@ spring:
             allowedMethods: "*"
             allowedHeaders: "*"
       routes:
-      - id: jeecg-demo
-        uri: lb://jeecg-demo
+      - id: user-service
+        uri:  http://localhost:9998/
         predicates:
-        - Path=/mock/**,/test/**,/bigscreen/template1/**,/bigscreen/template2/**
-          # 全局熔断降级配置
+        - Path=/demo/**
+      - id: swagger-doc
+        uri:  http://localhost:8080/
+        predicates:
+        - Path=/test/**
       default-filters:
       - name: Hystrix
         args:
-          name: default
+          name: default-hystrix
           #转发地址
-          fallbackUri: 'forward:/fallback'
+          fallbackUri: forward:/fallback
       - name: Retry
         args:
           #重试次数，默认值是 3 次
@@ -35,14 +38,13 @@ spring:
           statuses: BAD_GATEWAY,BAD_REQUEST
           #指定哪些方法的请求需要进行重试逻辑，默认值是 GET 方法
           methods: GET,POST
+logging:
+  level:
+    com.*:  debug
 hystrix:
-  shareSecurityContext: true
-  metrics:
-    enabled: true
   command:
     default:
       execution:
         isolation:
-          strategy: SEMAPHORE
           thread:
-            timeoutInMilliseconds: 60000
+            timeoutInMilliseconds: 30000
